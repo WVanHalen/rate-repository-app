@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-import theme from "../theme";
+import { StyleSheet, View } from "react-native";
+import Text from "./Text";
 
 const styles = StyleSheet.create({
   container: {
@@ -17,16 +17,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
   },
-  count: {
-    color: theme.colors.textPrimary,
-    fontSize: theme.fontSizes.subheading,
-    fontWeight: theme.fontWeights.bold,
-  },
-  text: {
-    color: theme.colors.textSecondary,
-    fontSize: theme.fontSizes.body,
-    fontWeight: theme.fontWeights.normal,
-  },
 });
 
 const CountFormatter = (count) => {
@@ -43,10 +33,10 @@ const Count = ({ count, name }) => {
       <View style={styles.flexContainer}>
         <View style={styles.flexItem}>
           <View>
-            <Text style={styles.count}>{count}</Text>
+            <Text textPrimary>{formattedCount}</Text>
           </View>
           <View>
-            <Text style={styles.text}>{name}</Text>
+            <Text text="textSecondary">{name}</Text>
           </View>
         </View>
       </View>

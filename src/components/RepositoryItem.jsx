@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
+import Text from "./Text";
 import theme from "../theme";
 import Count from "./Count";
 
@@ -22,6 +23,8 @@ const styles = StyleSheet.create({
   },
   languageText: {
     color: "white",
+    fontWeight: theme.fontWeights.normal,
+    fontSize: theme.fontSizes.body,
   },
   flexContainer1: {
     flexDirection: "row",
@@ -40,17 +43,6 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     paddingTop: 15,
   },
-  fullName: {
-    fontWeight: theme.fontWeights.bold,
-    fontSize: theme.fontSizes.subheading,
-    color: theme.colors.textPrimary,
-  },
-  description: {
-    color: theme.colors.textSecondary,
-    fontSize: theme.fontSizes.body,
-    fontWeight: theme.fontWeights.normal,
-    flexWrap: "wrap",
-  },
 });
 
 const RepositoryItem = ({ item }) => {
@@ -65,10 +57,10 @@ const RepositoryItem = ({ item }) => {
         </View>
         <View style={styles.flexContainer2}>
           <View>
-            <Text style={styles.fullName}>{item.fullName}</Text>
+            <Text textPrimary>{item.fullName}</Text>
           </View>
           <View>
-            <Text style={styles.description}>{item.description}</Text>
+            <Text text="textSecondary">{item.description}</Text>
           </View>
           <View style={styles.language}>
             <Text style={styles.languageText}>{item.language}</Text>
