@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const CountFormatter = (count) => {
+export const CountFormatter = (count) => {
   return Math.abs(count) > 999
     ? Math.sign(count) * (Math.abs(count) / 1000).toFixed(1) + "k"
     : Math.sign(count) * Math.abs(count);
@@ -33,7 +33,9 @@ const Count = ({ count, name }) => {
       <View style={styles.flexContainer}>
         <View style={styles.flexItem}>
           <View>
-            <Text textPrimary>{formattedCount}</Text>
+            <Text testID={name} textPrimary>
+              {formattedCount}
+            </Text>
           </View>
           <View>
             <Text text="textSecondary">{name}</Text>

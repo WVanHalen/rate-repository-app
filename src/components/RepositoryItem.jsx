@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
 
 const RepositoryItem = ({ item }) => {
   return (
-    <View style={styles.container}>
+    <View testID="repositoryItem" style={styles.container}>
       <View style={styles.flexContainer1}>
         <View>
           <Image
@@ -57,13 +57,19 @@ const RepositoryItem = ({ item }) => {
         </View>
         <View style={styles.flexContainer2}>
           <View>
-            <Text textPrimary>{item.fullName}</Text>
+            <Text testID="fullName" textPrimary>
+              {item.fullName}
+            </Text>
           </View>
           <View>
-            <Text text="textSecondary">{item.description}</Text>
+            <Text testID="description" text="textSecondary">
+              {item.description}
+            </Text>
           </View>
           <View style={styles.language}>
-            <Text style={styles.languageText}>{item.language}</Text>
+            <Text testID="language" style={styles.languageText}>
+              {item.language}
+            </Text>
           </View>
         </View>
       </View>
