@@ -28,11 +28,13 @@ const SignInForm = ({ onSubmit }) => {
     <View style={styles.container}>
       <FormikTextInput
         style={styles.input}
+        testID="username"
         name="username"
         placeholder="Username"
       />
       <FormikTextInput
         style={styles.input}
+        testID="password"
         name="password"
         placeholder="Password"
         secureTextEntry
