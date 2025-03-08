@@ -1,7 +1,8 @@
-import { View, StyleSheet, Image } from "react-native";
-import Text from "./Text";
-import theme from "../theme";
-import Count from "./Count";
+import { View, StyleSheet, Image, Pressable } from "react-native";
+import Text from "../Text";
+import theme from "../../theme";
+import Count from "../Count";
+import { useNavigate } from "react-router-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -46,8 +47,16 @@ const styles = StyleSheet.create({
 });
 
 const RepositoryItem = ({ item }) => {
+  const navigate = useNavigate();
+  const onPress = () => {
+    navigate(`/repository/${item.id}`);
+  };
   return (
-    <View testID="repositoryItem" style={styles.container}>
+    <Pressable
+      testID="repositoryItem"
+      style={styles.container}
+      onPress={onPress}
+    >
       <View style={styles.flexContainer1}>
         <View>
           <Image
@@ -79,7 +88,7 @@ const RepositoryItem = ({ item }) => {
         <Count count={item.reviewCount} name="Reviews" />
         <Count count={item.ratingAverage} name="Rating" />
       </View>
-    </View>
+    </Pressable>
   );
 };
 
