@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Formik } from "formik";
 import * as yup from "yup";
 import SignInForm from "./SignInForm";

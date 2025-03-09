@@ -1,5 +1,4 @@
 import {
-  Text,
   View,
   Image,
   TouchableOpacity,
@@ -8,6 +7,7 @@ import {
 } from "react-native";
 import Count from "../Count";
 import theme from "../../theme";
+import Text from "../Text";
 
 const styles = StyleSheet.create({
   container: {

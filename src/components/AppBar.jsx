@@ -4,6 +4,7 @@ import AppBarTab from "./AppBarTab";
 import useAuthStorage from "../hooks/useAuthStorage";
 import { ME } from "../graphql/queries";
 import { useApolloClient, useQuery } from "@apollo/client";
+import ReviewForm from "./CreateReview/ReviewForm";
 
 const styles = StyleSheet.create({
   container: {
@@ -18,6 +19,7 @@ const styles = StyleSheet.create({
   flexItem: {
     flexGrow: 1,
     paddingRight: 20,
+    flexDirection: "row",
   },
   scrollView: {
     flexDirection: "row",
@@ -43,7 +45,14 @@ const AppBar = () => {
         </View>
         <View style={styles.flexItem}>
           {data?.me ? (
-            <AppBarTab onPress={logout} text="Sign out" to="/signin" />
+            <>
+              <View style={styles.flexItem}>
+                <AppBarTab text="Create a review" to="/review" />
+              </View>
+              <View style={styles.flexItem}>
+                <AppBarTab onPress={logout} text="Sign out" to="/signin" />
+              </View>
+            </>
           ) : (
             <AppBarTab text="Sign in" to="/signin" />
           )}
