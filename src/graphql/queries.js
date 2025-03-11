@@ -15,8 +15,16 @@ const DETAILS = gql`
 `;
 
 export const GET_REPOSITORIES = gql`
-  query getRepositories {
-    repositories {
+  query getRepositories(
+    $orderBy: AllRepositoriesOrderBy
+    $orderDirection: OrderDirection
+    $searchKeyword: String
+  ) {
+    repositories(
+      orderBy: $orderBy
+      orderDirection: $orderDirection
+      searchKeyword: $searchKeyword
+    ) {
       edges {
         node {
           ...details
@@ -53,10 +61,22 @@ export const GET_REPOSITORY = gql`
 `;
 
 export const ME = gql`
-  query {
+  query gerCurrentUser($includeReviews: Boolean = false) {
     me {
       id
       username
+      reviews @include(if: $includeReviews) {
+        edges {
+          node {
+            createdAt
+            rating
+            repository {
+              fullName
+            }
+            text
+          }
+        }
+      }
     }
   }
 `;

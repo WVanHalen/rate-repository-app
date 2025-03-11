@@ -50,6 +50,9 @@ const AppBar = () => {
                 <AppBarTab text="Create a review" to="/review" />
               </View>
               <View style={styles.flexItem}>
+                <AppBarTab text="My reviews" to="/myreviews" />
+              </View>
+              <View style={styles.flexItem}>
                 <AppBarTab onPress={logout} text="Sign out" to="/signin" />
               </View>
             </>
