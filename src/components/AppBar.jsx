@@ -54,7 +54,14 @@ const AppBar = () => {
               </View>
             </>
           ) : (
-            <AppBarTab text="Sign in" to="/signin" />
+            <>
+              <View style={styles.flexItem}>
+                <AppBarTab text="Sign in" to="/signin" />
+              </View>
+              <View style={styles.flexItem}>
+                <AppBarTab text="Sign up" to="/signup" />
+              </View>
+            </>
           )}
         </View>
       </ScrollView>
